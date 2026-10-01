@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 
 List<Robot> teams = [];
@@ -32,6 +31,7 @@ void runCli(List<String> arguments) {
         print(
           "That was not an option, but we take it that you are satisfied. If this assumption is incorrect, please reload the page.",
         );
+        success = true;
       }
     }
 
@@ -49,6 +49,7 @@ void runCli(List<String> arguments) {
         print(
           "That was not an option, but we take it that you are satisfied. If this assumption is incorrect, please reload the page.",
         );
+        success = true;
       }
     }
     if (optionInt == 3) {
@@ -65,9 +66,8 @@ void runCli(List<String> arguments) {
         print(
           "That was not an option, but we take it that you are satisfied. If this assumption is incorrect, please reload the page.",
         );
+        success = true;
       }
-    } else {
-      print("This was not an option, please try again.");
     }
   }
 }
@@ -76,47 +76,55 @@ void addToMap() {
   bool addSuccess = false;
   while (addSuccess == false) {
     print("What team would you like the add to the database?");
-    String newTeam = stdin.readLineSync() ?? "Error";
-    print("Thank you! What is there team number?");
-    String teamNumber = stdin.readLineSync() ?? "Error";
-    int? teamNumberInt = int.tryParse(teamNumber);
-    if (teamNumberInt == null) {
-      print("The elo must be a number, please try again.");
-      return;
-    } else {
-      print(
-        "Thank you! Now what is their official FIRST robotics competition elo?",
-      );
-    }
-    String newTeamScore = stdin.readLineSync() ?? "Error";
-    int? newTeamScoreInt = int.tryParse(newTeamScore);
-    Map<String, int> teamScore = {"Bear Metal": 20000, "Other Random Team": 20};
-    if (newTeamScoreInt == null) {
-      print("The elo must be a number, please try again.");
-      return;
-    } else {
-      print("What game number are you scouting? Please type it as a number.");
-      String gameNumber = stdin.readLineSync() ?? "Error";
-      int? gameNumberInt = int.tryParse(gameNumber);
+    String newTeam = stdin.readLineSync() ?? "Please type their name, not team number";
+    int? newTeamInt = int.tryParse(newTeam);
+    if (newTeamInt == null) {
+      print("Thank you! What is there team number?");
+      String teamNumber = stdin.readLineSync() ?? "Error";
+      int? teamNumberInt = int.tryParse(teamNumber);
+      if (teamNumberInt == null) {
+        print("The team number must be a number, please try again.");
+        return;
+      } else {
+        print(
+          "Thank you! Now what is their official FIRST robotics competition elo?",
+        );
+      }
+      String newTeamScore = stdin.readLineSync() ?? "Error";
+      int? newTeamScoreInt = int.tryParse(newTeamScore);
       Map<String, int> teamScore = {
         "Bear Metal": 20000,
-        "Other Random Team": 20,
+        "Other Random Team": 20
       };
-      if (gameNumberInt == null) {
+      if (newTeamScoreInt == null) {
         print("The elo must be a number, please try again.");
         return;
       } else {
-        Robot bot = Robot(newTeam, teamNumberInt, [
-          Game(gameNumberInt, newTeamScoreInt),
-        ]);
+        print("What game number are you scouting? Please type it as a number.");
+        String gameNumber = stdin.readLineSync() ?? "Error";
+        int? gameNumberInt = int.tryParse(gameNumber);
+        Map<String, int> teamScore = {
+          "Bear Metal": 20000,
+          "Other Random Team": 20,
+        };
+        if (gameNumberInt == null) {
+          print("The elo must be a number, please try again.");
+        } else {
+          Robot bot = Robot(newTeam, teamNumberInt, [
+            Game(gameNumberInt, newTeamScoreInt),
+          ]);
 
-        teams.add(bot);
+          teams.add(bot);
 
-        print(
-          "Thank you $newTeam has been added to the database with a score of $newTeamScore",
-        );
-        addSuccess = true;
+          print(
+            "Thank you $newTeam has been added to the database with a score of $newTeamScore",
+          );
+          addSuccess = true;
+        }
       }
+    }
+    else {
+      print("Their name must be a word not a number");
     }
   }
 }

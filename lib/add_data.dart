@@ -23,25 +23,23 @@ void addToMap() {
           print("The game number must be a NUMBER");
         } else {
           print("Thank you! How many fuel was collected that game?");
-        }
-        String newTeamScore = stdin.readLineSync() ?? "Error";
-        int? newTeamScoreInt = int.tryParse(newTeamScore);
-        if (newTeamScoreInt == null) {
-          print("Fuel collected must be a number");
-        }
-        if (gameNumberInt == null) {
-          print("The elo must be a number, please try again.");
-        } else {
-          Robot bot = Robot(newTeam, teamNumberInt, [
-            Game(gameNumberInt, newTeamScoreInt),
-          ]);
+          String newTeamScore = stdin.readLineSync() ?? "Error";
+          int? newTeamScoreInt = int.tryParse(newTeamScore);
+          if (newTeamScoreInt == null) {
+            print("Fuel collected must be a number");
+          }
+          else {
+            Robot bot = Robot(newTeam, teamNumberInt, [
+              Game(gameNumberInt, newTeamScoreInt),
+            ]);
 
-          teams.add(bot);
+            teams.add(bot);
 
-          print(
-            "Thank you $newTeam has been added to the database with a score of $newTeamScore",
-          );
-          addSuccess = true;
+            print(
+              "Thank you $newTeam($teamNumberInt) has been added to the database with a game $gameNumberInt score of $newTeamScore",
+            );
+            addSuccess = true;
+          }
         }
       }
     } else {

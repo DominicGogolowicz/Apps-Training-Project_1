@@ -16,7 +16,9 @@ void runCli(List<String> arguments) {
     print("1: Scout team");
     print("2: View our database of teams and their score");
     print("3: Predict the outcome of a match");
-    print("Please choose an action and type its corresponding input AS A NUMBER.");
+    print(
+      "Please choose an action and type its corresponding input AS A NUMBER.",
+    );
     String option = stdin.readLineSync() ?? "Error";
     int? optionInt = int.tryParse(option);
     if (optionInt == null) {

@@ -27,17 +27,31 @@ void addToMap() {
           int? newTeamScoreInt = int.tryParse(newTeamScore);
           if (newTeamScoreInt == null) {
             print("Fuel collected must be a number");
-          }
-          else {
-            Robot bot = Robot(newTeam, teamNumberInt, [
-              Game(gameNumberInt, newTeamScoreInt),
-            ]);
+          } else {
+            Robot? foundTeam;
+            for (Robot teamNumberIntLook in teams) {
+              if (teamNumberIntLook.teamNumber == teamNumberInt) {
+                foundTeam = teamNumberIntLook;
+                break;
+              }
+            }
 
-            teams.add(bot);
+            if (foundTeam == null) {
+              Robot bot = Robot(newTeam, teamNumberInt, [
+                Game(gameNumberInt, newTeamScoreInt),
+              ]);
 
-            print(
-              "Thank you $newTeam($teamNumberInt) has been added to the database with a game $gameNumberInt score of $newTeamScore",
-            );
+              teams.add(bot);
+
+              print(
+                "Thank you $newTeam($teamNumberInt) has been added to the database with a game $gameNumberInt score of $newTeamScore",
+              );
+            } else {
+              foundTeam.games.add(Game(gameNumberInt, newTeamScoreInt));
+              print(
+                "Thank you, game $gameNumberInt score of $newTeamScore added to existing team $teamNumberInt",
+              );
+            }
             addSuccess = true;
           }
         }

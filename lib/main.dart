@@ -64,10 +64,10 @@ void runCli(List<String> arguments) {
       print("Are you done using $appName ?");
       print("Yes / No");
       String done = stdin.readLineSync() ?? "Error";
-      if (done == "yes") {
+      if (done == "Yes") {
         success = true;
       }
-      if (done == "no") {
+      if (done == "No") {
         print("Thank you for using $appName, have a good day!");
       } else {
         print(

@@ -3,25 +3,7 @@ import 'main.dart';
 import 'dart:math';
 
 void matchPredictions() {
-  bool predictionDecisionsSuccess = false;
-  while (predictionDecisionsSuccess == false) {
-    print(
-      "Hello, are you trying to predict a one on one match, or a three on three?",
-    );
-    print("1: (1v1) or 2: (3v3)?");
-    String matchupRobotsPerTeam = stdin.readLineSync() ?? "Error";
-    if (matchupRobotsPerTeam == "1") {
-      predictionDecisionsSuccess = true;
-      oneOnOne();
-    }
-    else if (matchupRobotsPerTeam == "2") {
-      predictionDecisionsSuccess = true;
-    } else {
-      print(
-        "That was not an option, please try again and type your input in the correct format. ",
-      );
-    }
-  }
+  oneOnOne();
 }
 
 void oneOnOne() {

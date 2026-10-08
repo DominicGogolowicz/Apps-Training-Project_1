@@ -82,6 +82,7 @@ void addToMap() {
             } else if (inputEndInt == 1) {
               mapView();
               homeSuccess = true;
+              addSuccess = true;
             } else if (inputEndInt == 2) {
               print("Returning to home screen");
               homeSuccess = true;

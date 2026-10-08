@@ -10,8 +10,8 @@ List<Robot> teams = [];
 void runCli(List<String> arguments) {
   String appName = "FRC Scout";
   bool success = false;
+  print("Welcome to $appName");
   while (success == false) {
-    print("Welcome to $appName");
     print("What would you like to do today?");
     print("1: Scout team");
     print("2: View our database of teams and their score");
@@ -33,7 +33,7 @@ void runCli(List<String> arguments) {
         success = true;
       }
       if (done == "no") {
-        print("Thank you for using $appName, have a good day!");
+        print("Thank you for using $appName, redirecting to home page.");
       } else {
         print(
           "That was not an option, but we take it that you are satisfied. If this assumption is incorrect, please reload the page.",
@@ -51,7 +51,7 @@ void runCli(List<String> arguments) {
         success = true;
       }
       if (done == "no") {
-        print("Thank you for using $appName, have a good day!");
+        print("Thank you for using $appName, redirecting to home page");
       } else {
         print(
           "That was not an option, but we take it that you are satisfied. If this assumption is incorrect, please reload the page.",

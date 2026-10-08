@@ -11,8 +11,7 @@ void mapView() {
     if (dataViewName == bots.teamName) {
       print("$dataViewName's team number is ${bots.teamNumber}");
       for (Game game in bots.games) {
-        print("In game number ${game.gameNumber}");
-        print("They got a score of ${game.score}");
+        print("In game number ${game.gameNumber} $dataViewName got a score of ${game.score}");
       }
     }
   }

@@ -6,7 +6,6 @@ import 'main.dart';
 
 void addToMap() {
   bool addSuccess = false;
-  bool homeSuccess = false;
   while (addSuccess == false) {
     print("What team would you like the add to the database?");
     String newTeam =
@@ -71,7 +70,9 @@ void addToMap() {
               addSuccess = true;
             }
           }
-        } else {
+        }
+        else {
+          bool homeSuccess = false;
           print("That game has already been scouted.");
           while (homeSuccess == false) {
             print("Either view data (1) or go back to home screen (2).");

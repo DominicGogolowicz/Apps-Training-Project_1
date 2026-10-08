@@ -27,12 +27,12 @@ void runCli(List<String> arguments) {
     if (optionInt == 1) {
       addToMap();
       print("Are you done using $appName ?");
-      print("Yes / No");
+      print("yes / no");
       String done = stdin.readLineSync() ?? "Error";
-      if (done == "Yes") {
+      if (done == "yes") {
         success = true;
       }
-      if (done == "No") {
+      else if (done == "no") {
         print("Thank you for using $appName, redirecting to home page.");
       } else {
         print(
@@ -45,12 +45,12 @@ void runCli(List<String> arguments) {
     if (optionInt == 2) {
       mapView();
       print("Are you done using $appName ?");
-      print("Yes / No");
+      print("yes / no");
       String done = stdin.readLineSync() ?? "Error";
-      if (done == "Yes") {
+      if (done == "yes") {
         success = true;
       }
-      if (done == "No") {
+      else if (done == "no") {
         print("Thank you for using $appName, redirecting to home page");
       } else {
         print(
@@ -62,12 +62,12 @@ void runCli(List<String> arguments) {
     if (optionInt == 3) {
       matchPredictions();
       print("Are you done using $appName ?");
-      print("Yes / No");
+      print("yes / no");
       String done = stdin.readLineSync() ?? "Error";
-      if (done == "Yes") {
+      if (done == "yes") {
         success = true;
       }
-      if (done == "No") {
+      else if (done == "no") {
         print("Thank you for using $appName, have a good day!");
       } else {
         print(

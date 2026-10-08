@@ -4,14 +4,26 @@ import 'main.dart';
 
 void mapView() {
   print("Welcome to the FRC database!");
-  print("What team would you like to scout?");
+  print("What team would you like to view?");
   print("Enter their official registered name.");
   String dataViewName = stdin.readLineSync() ?? "Please type an input";
-  for (Robot bots in teams) {
-    if (dataViewName == bots.teamName) {
-      print("$dataViewName's team number is ${bots.teamNumber}");
-      for (Game game in bots.games) {
-        print("In game number ${game.gameNumber} $dataViewName got a score of ${game.score}");
+  bool teamFound = false;
+  for (Robot bot in teams) {
+    if (dataViewName.toLowerCase() == bot.teamName.toLowerCase()) {
+      teamFound = true;
+    }
+  }
+  if (teamFound == false) {
+    print("No team found matching '$dataViewName'.");
+  }
+  else if (teamFound == true){
+    for (Robot bots in teams) {
+      if (dataViewName.toLowerCase() == bots.teamName.toLowerCase()) {
+        print("$dataViewName's team number is ${bots.teamNumber}");
+        for (Game game in bots.games) {
+          print("In game number ${game
+              .gameNumber} $dataViewName got a score of ${game.score}");
+        }
       }
     }
   }

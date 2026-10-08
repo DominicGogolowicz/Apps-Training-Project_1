@@ -7,7 +7,7 @@ import 'main.dart';
 void addToMap() {
   bool addSuccess = false;
   while (addSuccess == false) {
-    print("What team would you like the add to the database?");
+    print("${magenta}What team would you like the add to the database?");
     String newTeam =
         stdin.readLineSync() ?? "Please type their name, not team number";
     int? newTeamInt = int.tryParse(newTeam);

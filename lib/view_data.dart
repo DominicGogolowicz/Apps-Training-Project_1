@@ -3,7 +3,7 @@ import 'dart:io';
 import 'main.dart';
 
 void mapView() {
-  print("Welcome to the FRC database!");
+  print("${green}Welcome to the FRC database!");
   print("What team would you like to view?");
   print("Enter their official registered name.");
   String dataViewName = stdin.readLineSync() ?? "Please type an input";

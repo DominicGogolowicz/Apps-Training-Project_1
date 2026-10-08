@@ -10,7 +10,7 @@ void oneOnOne() {
   bool predictionsTeams = false;
   while (predictionsTeams == false) {
     print(
-      'What is the first team that you want to put into the prediction engine? Type this as a number',
+      '${orange}What is the first team that you want to put into the prediction engine? Type this as a number',
     );
     String teamNameOneOnOneOne = stdin.readLineSync() ?? "Error";
     int? teamNameOneOnOneOneInt = int.tryParse(teamNameOneOnOneOne);
